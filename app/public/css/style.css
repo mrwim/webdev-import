@@ -3,6 +3,9 @@ body {
     margin: 100px;
 }
 
+textarea {
+    min-height: 100px;
+}
 .post {
     width: 100%;
     background-color: lightgrey;
