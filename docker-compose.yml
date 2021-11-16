@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    nginx:
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+            - ./app:/app
+    php:
+        build:
+            context: .
+            dockerfile: PHP.Dockerfile
+        env_file: env/php.env
+        volumes:
+            - ./app:/app
+
+    mysql:
+        image: mariadb:latest
+        env_file: env/mariadb.env
+        volumes:
+            - mysqldata:/var/lib/mysql
+        ports:
+            - 3306:3306
+
+    phpmyadmin:
+        image: phpmyadmin:latest
+        ports:
+            - 8080:80
+        environment:
+            - PMA_HOST=mysql
+        restart: unless-stopped
+volumes:
+    mysqldata: {}
