@@ -12,6 +12,3 @@ INSERT INTO guestbook (posted_at, name, email, message, ip_address) VALUES
 (now(), 'Wim Wiltenburg', 'info@wiltenburg.io', 'This is a test message', INET_ATON('127.0.0.1'));
 INSERT INTO guestbook (posted_at, name, email, message, ip_address) VALUES
 (now(), 'Jack Monterey', 'jack.monterrey@gmail.com', 'Another test message', INET_ATON('127.0.0.1'));
-
-
-select id, INET_NTOA(ip_address) from guestbook;
