@@ -17,40 +17,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':email', $_POST['email']);
     $stmt->bindParam(':message', $message);
     $stmt->bindParam(':ip_address', $ip_address);
-        
+
     $stmt->execute();
 }
 ?>
 
-<html lang="en">
-<head>
-    <title>Guestbook</title>
-    <link href="css/style.css" type="text/css" rel="stylesheet">
-</head>
+    <html lang="en">
+    <head>
+        <title>Guestbook</title>
+        <link href="css/style.css" type="text/css" rel="stylesheet">
+    </head>
 <body>
 
-<h2>Guestbook</h2>
+    <h2>Guestbook</h2>
 
-<h3>Write something in our guestbook</h3>
+    <h3>Write something in our guestbook</h3>
 
-<form method="post">
-    <div class="form-field">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div class="form-field">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email">
-    </div>
-    <div class="form-field">
-        <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea>
-    </div>
-    <div class="form-field">
-        <label>&nbsp;</label>
-        <input type="submit" value="Send" />
-    </div>
-</form>
+    <form method="post">
+        <div class="form-field">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-field">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div class="form-field">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+        </div>
+        <div class="form-field">
+            <label>&nbsp;</label>
+            <input type="submit" value="Send"/>
+        </div>
+    </form>
 <?php
 $posts = $db->query($GET_ALL_POSTS);
 
@@ -59,9 +59,9 @@ foreach ($posts as $post) {
 
     <div class="post">
         <div class="post-name"><?php echo $post['name'] ?></div>
-        <p><?php echo $post['message'];?></p>
-        <p class="post-footer"><?php echo "posted at " . $post['posted_at'] . " from " . $post['ip_address']?> </p>
+        <p><?php echo $post['message']; ?></p>
+        <p class="post-footer"><?php echo "posted at " . $post['posted_at'] . " from " . $post['ip_address'] ?> </p>
     </div>
-<?php
+    <?php
 }
 
