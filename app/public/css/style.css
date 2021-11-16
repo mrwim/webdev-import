@@ -1,5 +1,5 @@
 body {
-    font-family: "Verdana";
+    font-family: 'Verdana', sans-serif;
 }
 
 .post {
@@ -16,4 +16,12 @@ body {
 
 .post-footer {
     font-style: italic;
+}
+
+.form-field {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin: 0;
+    padding: 10px 0;
 }
