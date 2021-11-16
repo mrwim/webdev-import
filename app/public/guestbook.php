@@ -10,11 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         (name, email, message, posted_at, ip_address)
         VALUES 
         (:name, :email, :message, now(), :ip_address)");
+    $message = nl2br($_POST['message']);
     // Only variables can be called pass by reference
     $ip_address = ip2long($_SERVER["REMOTE_ADDR"]);
     $stmt->bindParam(':name', $_POST['name']);
     $stmt->bindParam(':email', $_POST['email']);
-    $stmt->bindParam(':message', $_POST['message']);
+    $stmt->bindParam(':message', $message);
     $stmt->bindParam(':ip_address', $ip_address);
         
     $stmt->execute();
