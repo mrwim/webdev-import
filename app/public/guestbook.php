@@ -1,5 +1,4 @@
 <?php
-
 require_once '../db.php';
 $db = DB::getInstance();
 $GET_ALL_POSTS = 'SELECT id, posted_at, name, email, message, INET_NTOA(ip_address) as ip_address FROM guestbook ORDER BY id DESC';
@@ -31,25 +30,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h2>Guestbook</h2>
 
-    <h3>Write something in our guestbook</h3>
-
     <form method="post">
-        <div class="form-field">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-        </div>
-        <div class="form-field">
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email">
-        </div>
-        <div class="form-field">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
-        </div>
-        <div class="form-field">
-            <label>&nbsp;</label>
-            <input type="submit" value="Send"/>
-        </div>
+        <fieldset>
+            <legend>Leave a message</legend>
+            <div class="form-field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
+            </div>
+            <div class="form-field">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <div class="form-field">
+                <label>&nbsp;</label>
+                <input type="submit" value="Send"/>
+            </div>
+        </fieldset>
     </form>
 <?php
 $posts = $db->query($GET_ALL_POSTS);
