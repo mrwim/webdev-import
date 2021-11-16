@@ -1,0 +1,19 @@
+body {
+    font-family: "Verdana";
+}
+
+.post {
+    width: 100%;
+    background-color: lightgrey;
+    border-style: solid;
+    border: black;
+    border-width: medium;
+}
+
+.post-name {
+    font-weight: bold;
+}
+
+.post-footer {
+    font-style: italic;
+}
