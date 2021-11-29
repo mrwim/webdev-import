@@ -8,6 +8,7 @@ class PatternRouter
         $defaultController = 'home';
         $defaultMethod = 'index';
 
+
         // read controller/method names from the URL
         $path = explode('/', $uri);
 

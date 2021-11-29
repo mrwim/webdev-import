@@ -34,6 +34,7 @@
 
     <h1 class="h1 text-center">Jack's Guitarshop</h1>
     <h5 class="h5 text-center text-primary">Strings attached</h5>
+    <img src="/img/logo.png" class="img-fluid">
 </div>
 </body>
 </html>
