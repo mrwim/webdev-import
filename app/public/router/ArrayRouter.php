@@ -26,7 +26,7 @@ class ArrayRouter
 
         // Deal with undefined paths first
 
-        if (!isset($routes[$uri]['controller']) || !isset($routes[$uri]['method'])) {
+        if (!(isset($routes[$uri]['controller']) || isset($routes[$uri]['method']))) {
             http_response_code(404);
             die('404 Not found');
         }
