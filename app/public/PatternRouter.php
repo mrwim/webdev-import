@@ -26,7 +26,7 @@ class PatternRouter
         try {
             require __DIR__ . '/controller/' . $controllerName . '.php';
             $controllerObject = new $controllerName;
-            $controllerObject->{$methodName}();
+            $controllerObject->$methodName();
 
         } catch (Exception $e) {
             http_response_code(404);

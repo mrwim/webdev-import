@@ -29,12 +29,8 @@
         </div>
     </div>
 </nav>
-<div class="container py-5 bg-light">
-    <h1 class="h1 text-center">Jack's Guitarshop</h1>
-    <h5 class="h5 text-center text-primary">Strings attached</h5>
-</div>
+<div class="container bg-light">
 
-<div class="container py-5">
     <p class="lead text-center">About Jack's Guitarshop</p>
 </div>
 </body>
