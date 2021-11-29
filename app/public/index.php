@@ -1,3 +1,8 @@
 <?php
-echo "Requested URL: " . $_SERVER['REQUEST_URI'];
-phpinfo();
+
+require_once('router/ArrayRouter.php');
+
+$uri = trim($_SERVER['REQUEST_URI'], '/');
+
+$router = new ArrayRouter();
+$router->route($uri);
