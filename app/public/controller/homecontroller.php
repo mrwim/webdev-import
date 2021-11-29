@@ -6,9 +6,4 @@ class HomeController
     {
         include __DIR__ . '/../view/index.php';
     }
-
-    public function about()
-    {
-        include __DIR__ . '/../view/about.php';
-    }
 }

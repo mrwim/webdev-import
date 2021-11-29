@@ -1,8 +1,8 @@
 <?php
 
-require_once('router/ArrayRouter.php');
+require_once('./PatternRouter.php');
 
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 
-$router = new ArrayRouter();
+$router = new PatternRouter();
 $router->route($uri);
