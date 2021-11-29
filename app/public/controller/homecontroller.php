@@ -4,11 +4,11 @@ class HomeController
 {
     public function index()
     {
-        echo "Home Page index";
+        include __DIR__ . '/../view/index.php';
     }
 
     public function about()
     {
-        echo "Home page about";
+        include __DIR__ . '/../view/about.php';
     }
 }
