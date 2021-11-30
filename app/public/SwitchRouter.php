@@ -15,7 +15,11 @@ class SwitchRouter
                 $controller = new HomeController();
                 $controller->about();
                 break;
-
+            case 'article':
+                require __DIR__ . '/controller/articlecontroller.php';
+                $controller = new ArticleController();
+                $controller->index();
+                break;
             default:
                 echo '404 not found';
                 http_response_code(404);
