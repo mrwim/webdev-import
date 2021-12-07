@@ -1,25 +1,27 @@
-document.onload = () => {
-    changeBackground();
-}
+function addItem() {
 
-function addElement() {
-    console.log('In addElement');
-    const newDiv = document.createElement('div');
-    const newContent = document.createTextNode("Hi there, and greetings");
-    newDiv.appendChild(newContent);
-    const currentDiv = document.getElementById('div1');
-    document.body.insertBefore(newDiv, currentDiv);
-}
+    const textarea = document.getElementById('todoText');
 
-function changeBackground() {
+    const container = document.getElementById('itemList');
 
-    const slider1 = document.getElementById('slider1');
-    const slider2 = document.getElementById('slider2');
-    const slider3 = document.getElementById('slider3');
+    const card = document.createElement('div');
+    card.className = 'col-md-6 col-xxl-4 p-1';
 
-    document.getElementById('text1').innerHTML = slider1.value;
-    document.getElementById('text2').innerHTML = slider2.value;
-    document.getElementById('text3').innerHTML = slider3.value;
+    const cardElement = document.createElement('div');
+    cardElement.className = 'card';
 
-    document.body.style.background = 'rgb(' + [slider1.value, slider2.value, slider3.value].join(',') + ')';
+    const cardBody = document.createElement('div');
+    cardBody.className = 'card-body';
+
+    const cardText = document.createElement('p');
+    cardText.innerHTML = textarea.value;
+
+    cardBody.appendChild(cardText);
+    cardElement.appendChild(cardBody);
+    card.appendChild(cardElement);
+
+    container.appendChild(card);
+
+    textarea.value = '';
+
 }

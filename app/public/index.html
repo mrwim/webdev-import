@@ -1,38 +1,56 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <title>Sliders</title>
-    <style>
-        label {
-            font-size: large;
-            color: whitesmoke;
-        }
-
-        td {
-            text-align: center;
-        }
-    </style>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Todo App</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
 </head>
-<body onload="changeBackground()">
+
+<body>
+<div class="container">
+    <h1 class="mt-5" data-bs-placement="top" data-bs-toggle="tooltip"
+        title="Every time somebody creates a to-do app somewhere a puppy dies">TODO App</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Add item
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label" for="todoText">Description:</label>
+                            <textarea class="form-control" id="todoText"
+                                      placeholder="Enter your TODO item here"></textarea>
+                        </div>
+                        <button class="btn btn-primary" onclick="addItem();" type="button">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 class="mt-5">TODO Items</h2>
+    <div class="row" id="itemList">
+
+        <!-- placeholder card start -->
+        <div class="col-md-6 col-xxl-4 p-1">
+            <div class="card">
+                <div class="card-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti qui reprehenderit quia
+                        fugiat. Enim accusantium excepturi error dicta! Sint voluptate laboriosam architecto est
+                        facere quam corporis quos non minima enim.</p>
+                </div>
+            </div>
+        </div>
+        <!-- placeholder card end -->
+
+    </div>
+</div>
 <script src="script.js"></script>
-<table>
-    <tr>
-        <td><input id="slider1" max="255" min="0" name="slider1" onChange="changeBackground()" type="range"></td>
-        <td><input id="slider2" max="255" min="0" name="slider2" onChange="changeBackground()" type="range"></td>
-        <td><input id="slider3" max="255" min="0" name="slider3" onChange="changeBackground()" type="range"></td>
-    </tr>
-    <tr style="align-content: center">
-        <td><label id="text1"></label></td>
-        <td><label id="text2"></label></td>
-        <td><label id="text3"></label></td>
-    </tr>
-
-
-</table>
-<div id="div1">The text above has been created dynamically</div>
-<input onclick="addElement()" type="button" value="Create Text"/>
 </body>
+
 </html>
