@@ -1,0 +1,34 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Sliders</title>
+    <style>
+        label {
+            font-size: large;
+            color: whitesmoke;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="changeBackground()">
+<script src="script.js"></script>
+<table>
+    <tr>
+        <td><input id="slider1" max="255" min="0" name="slider1" onChange="changeBackground()" type="range"></td>
+        <td><input id="slider2" max="255" min="0" name="slider2" onChange="changeBackground()" type="range"></td>
+        <td><input id="slider3" max="255" min="0" name="slider3" onChange="changeBackground()" type="range"></td>
+    </tr>
+    <tr style="align-content: center">
+        <td><label id="text1"></label></td>
+        <td><label id="text2"></label></td>
+        <td><label id="text3"></label></td>
+    </tr>
+</table>
+</body>
+</html>

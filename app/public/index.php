@@ -1,3 +1,2 @@
 <?php
-echo "Requested URL: " . $_SERVER['REQUEST_URI'];
-phpinfo();
+include_once './index.html';
