@@ -26,7 +26,7 @@ function addItem() {
     cardFooter.className = 'card-footer';
     const button = document.createElement('button');
     button.className = 'btn btn-outline-primary';
-    button.setAttribute('onClick', `removeItem(${newId})`);
+    button.setAttribute('onClick', `removeItem(\'${newId}\')`);
     button.append('Delete');
 
 
