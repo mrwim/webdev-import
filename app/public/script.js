@@ -1,11 +1,12 @@
-document.onload = () => {
+window.addEventListener('load', () => {
     changeBackground();
-}
+    addElement();
+})
 
 function addElement() {
-    console.log('In addElement');
     const newDiv = document.createElement('div');
     const newContent = document.createTextNode("Hi there, and greetings");
+    newDiv.className = "text-center text-warning";
     newDiv.appendChild(newContent);
     const currentDiv = document.getElementById('div1');
     document.body.insertBefore(newDiv, currentDiv);
