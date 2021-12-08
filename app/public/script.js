@@ -5,6 +5,7 @@ function addItem() {
     const container = document.getElementById('itemList');
 
     const newId = this.getId(container);
+
     const card = document.createElement('div');
     card.className = 'col-md-6 col-xxl-4 p-1';
     card.setAttribute('id', newId);
@@ -26,7 +27,7 @@ function addItem() {
     cardFooter.className = 'card-footer';
     const button = document.createElement('button');
     button.className = 'btn btn-outline-primary';
-    button.setAttribute('onClick', `removeItem(\'${newId}\')`);
+    button.setAttribute('onClick', `removeItem('${newId}')`);
     button.append('Delete');
 
 
@@ -46,9 +47,8 @@ function removeItem(cardId) {
 }
 
 function getId(container) {
-    console.log(container.children.length);
     const newId = container.children.length > 0
-        ? parseInt(container.children.item(container.children.length -1).id.split('-')[1] ) +1
+        ? parseInt(container.children.item(container.children.length -1).id.split('-')[1] ) + 1
         : 1;
     return `card-${newId}`;
 
