@@ -1,17 +1,15 @@
 function addItem() {
 
     const textarea = document.getElementById('todoText');
+    const row = document.getElementById('itemList');
 
-    const container = document.getElementById('itemList');
+    // Create a new column in the row. This is the top element
+    const col = document.createElement('div');
+    col.className = 'col-md-6 col-xxl-4 p-1';
 
-    const newId = this.getId(container);
-
+    // create card, card body, card text, card footer with button
     const card = document.createElement('div');
-    card.className = 'col-md-6 col-xxl-4 p-1';
-    card.setAttribute('id', newId);
-
-    const cardElement = document.createElement('div');
-    cardElement.className = 'card';
+    card.className = 'card';
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
@@ -19,37 +17,23 @@ function addItem() {
     const cardText = document.createElement('p');
     cardText.innerHTML = textarea.value;
 
-    cardBody.appendChild(cardText);
-    cardElement.appendChild(cardBody);
-    card.appendChild(cardElement);
-
     const cardFooter = document.createElement('div');
     cardFooter.className = 'card-footer';
+
+    // create button and add listener
     const button = document.createElement('button');
-    button.className = 'btn btn-outline-primary';
-    button.setAttribute('onClick', `removeItem('${newId}')`);
-    button.append('Delete');
+    button.className = 'btn btn-outline-danger';
+    button.append('Delete')
+    button.addEventListener("click", () => row.removeChild(col));
 
-
+    // compose the card from its children and add it to the DOM
     cardFooter.appendChild(button);
+    cardBody.appendChild(cardText);
+    card.appendChild(cardBody);
     card.appendChild(cardFooter);
+    col.appendChild(card);
+    row.appendChild(col);
 
-    container.appendChild(card);
-
+    // clear textarea
     textarea.value = '';
-
-}
-
-function removeItem(cardId) {
-    const row = document.getElementById('itemList').children;
-    row.namedItem(cardId).remove();
-
-}
-
-function getId(container) {
-    const newId = container.children.length > 0
-        ? parseInt(container.children.item(container.children.length -1).id.split('-')[1] ) + 1
-        : 1;
-    return `card-${newId}`;
-
 }
