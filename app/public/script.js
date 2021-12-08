@@ -4,7 +4,7 @@ function addItem() {
 
     const container = document.getElementById('itemList');
 
-    const newId = `card-${ container.children.length + 1}`;
+    const newId = this.getId(container);
     const card = document.createElement('div');
     card.className = 'col-md-6 col-xxl-4 p-1';
     card.setAttribute('id', newId);
@@ -42,5 +42,14 @@ function addItem() {
 function removeItem(cardId) {
     const row = document.getElementById('itemList').children;
     row.namedItem(cardId).remove();
+
+}
+
+function getId(container) {
+    console.log(container.children.length);
+    const newId = container.children.length > 0
+        ? parseInt(container.children.item(container.children.length -1).id.split('-')[1] ) +1
+        : 1;
+    return `card-${newId}`;
 
 }
