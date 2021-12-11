@@ -45,7 +45,9 @@ LOCK TABLES `guestbook` WRITE;
     DISABLE KEYS */;
 INSERT INTO `guestbook`
 VALUES (1, '2021-12-10 16:04:03', 'Wim Wiltenburg', 'info@wiltenburg.io', 'This is a test message', 2130706433),
-       (2, '2021-12-10 16:04:03', 'Jack Monterey', 'jack.monterrey@gmail.com', 'Another test message', 2130706433);
+       (2, '2021-12-10 16:04:03', 'Jack Monterey', 'jack.monterrey@gmail.com', 'Another test message', 2130706433),
+       (3, '2021-12-10 16:04:03', 'Bla', 'info@wiltenburg.io', 'This is a test message', 2130706433),
+       (4, '2021-12-10 16:04:03', 'Bla', 'info@wiltenburg.io', 'This is a test message', 2130706433);
 /*!40000 ALTER TABLE `guestbook`
     ENABLE KEYS */;
 UNLOCK TABLES;
@@ -59,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES = @OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-10 16:53:00
+-- Dump completed on 2021-12-11 11:17:19
