@@ -1,5 +1,7 @@
-document.addEventListener('load', fetch('https://swapi.dev/api/people/')
-    .then(result => result.json())
-    .then((out) => {
-        console.log('Output: ', out);
-    }).catch((err) => console.error(err)));
+function getAllArticles() {
+    let articles = fetch('http://localhost/articles')
+        .then(result => result.json())
+        .then((out) => {
+            articles = out;
+        }).catch((err) => console.error(err))
+}

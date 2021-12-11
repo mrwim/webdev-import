@@ -8,6 +8,6 @@ $method = $_SERVER['REQUEST_METHOD'];
 $router = new SwitchRouter();
 $router->route($uri,
     $method,
-    $method === 'POST'
+    strcasecmp($method, 'post') == 0
         ? file_get_contents('php://input')
         : null);

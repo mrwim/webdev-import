@@ -18,12 +18,9 @@ class SwitchRouter
             case 'articles':
                 require __DIR__ . '/controller/articlecontroller.php';
                 $controller = new ArticleController();
-                if ($method === 'POST') {
-                    $controller->createArticle(json_decode($body, true));
-                    var_dump($body);
-                } else {
-                    $controller->index();
-                }
+                $method === 'POST'
+                    ? $controller->createArticle(json_decode($body, true))
+                    : $controller->index();
                 break;
             default:
                 echo '404 not found';
