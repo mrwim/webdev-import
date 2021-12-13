@@ -23,6 +23,19 @@ function createArticle() {
     })
         .then(out => {
             console.log(out)
+            name.value = null;
+            price.value = null;
         })
         .catch(err => console.error(err));
+}
+
+function deleteArticle(id) {
+    const url = `http://localhost/articles/${id}`;
+    fetch(url, {
+        method: 'DELETE',
+    })
+        .then(out => {
+            console.log(`performed delete on ${url}`);
+        })
+        .catch(err => console.error(err))
 }

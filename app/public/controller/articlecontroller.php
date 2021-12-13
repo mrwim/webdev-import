@@ -24,4 +24,14 @@ class articlecontroller
         $price = $vars["price"];
         return $this->service->createArticle($name, $price);
     }
+
+    public function deleteArticle($id)
+    {
+        return $this->service->deleteArticle($id);
+    }
+
+    public function breakdown($path)
+    {
+        var_dump($path);
+    }
 }

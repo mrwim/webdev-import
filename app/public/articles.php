@@ -11,7 +11,6 @@
 <script src="articles.js"></script>
 
 <?php
-
 $articles = json_decode(file_get_contents('http://nginx/articles'), true);
 
 ?>
@@ -23,6 +22,7 @@ $articles = json_decode(file_get_contents('http://nginx/articles'), true);
     <th>#</th>
     <th>Name</th>
     <th>price</th>
+    <th>action</th>
 </tr>
 </thead>
 <?php
@@ -32,6 +32,9 @@ foreach ($articles as $article) {
         <td><?php echo $article['id'] ?></td>
         <td><?php echo $article['name'] ?></td>
         <td><?php echo $article['price'] ?></td>
+        <td>
+            <button class="btn btn-outline-danger" onclick="deleteArticle(<?php echo $article['id'] ?>)">Delete</button>
+        </td>
     </tr>
     <?php
 }

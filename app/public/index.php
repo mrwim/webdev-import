@@ -2,6 +2,8 @@
 require_once('./SwitchRouter.php');
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 $method = $_SERVER['REQUEST_METHOD'];
+$path = explode('/', $uri);
+$path = count($path) > 1 ? $path[1] : null;
 /*
  * Works well with anything, but not with e.g. about/a
  */
@@ -10,4 +12,6 @@ $router->route($uri,
     $method,
     strcasecmp($method, 'post') == 0
         ? file_get_contents('php://input')
-        : null);
+        : null,
+    $path
+);

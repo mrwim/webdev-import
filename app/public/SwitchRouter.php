@@ -2,7 +2,7 @@
 
 class SwitchRouter
 {
-    public function route($uri, $method, $body)
+    public function route($uri, $method, $body, $path)
     {
         switch ($uri) {
             case '':
@@ -18,14 +18,21 @@ class SwitchRouter
             case 'articles':
                 require __DIR__ . '/controller/articlecontroller.php';
                 $controller = new ArticleController();
-                $method === 'POST'
-                    ? $controller->createArticle(json_decode($body, true))
-                    : $controller->index();
+                if ($method === 'POST') {
+                    $controller->createArticle(json_decode($body, true));
+                }
+                if ($method === 'DELETE') {
+                    exit(127);
+                    echo 'in delete';
+                    $controller->deleteArticle($path);
+                } else {
+                    $controller->index();
+                }
                 break;
             default:
                 echo '404 not found';
                 http_response_code(404);
-                break;
         }
     }
 }
+
