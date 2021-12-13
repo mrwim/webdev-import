@@ -1,8 +1,8 @@
 function getAllArticles() {
-    let articles = fetch('http://localhost/articles')
+    fetch('http://localhost/articles')
         .then(result => result.json())
         .then((out) => {
-            articles = out;
+            console.log(out);
         }).catch((err) => console.error(err))
 }
 

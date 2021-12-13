@@ -16,15 +16,13 @@ $articles = json_decode(file_get_contents('http://nginx/articles'), true);
 ?>
 <h1 class="h1">Articles</h1>
 
-<table class="table table-hover"
-<thead>
-<tr>
-    <th>#</th>
-    <th>Name</th>
-    <th>price</th>
-    <th>action</th>
-</tr>
-</thead>
+<table class="table table-hover">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">price</th>
+        <th scope="col">action</th>
+    </tr>
 <?php
 foreach ($articles as $article) {
     ?>
@@ -43,10 +41,10 @@ foreach ($articles as $article) {
 
 <div class="row g-3">
     <div class="col-sm-7">
-        <input type="text" id="form-name" class="form-control" placeholder="City" aria-label="City">
+        <input type="text" id="form-name" class="form-control" placeholder="Name" aria-label="Name">
     </div>
     <div class="col-sm">
-        <input type="text" id="form-price" class="form-control" placeholder="State" aria-label="State">
+        <input type="text" id="form-price" class="form-control" placeholder="Price" aria-label="Price">
     </div>
     <div class="col-sm">
         <button class="btn btn-primary" onclick="createArticle()">Add</button>

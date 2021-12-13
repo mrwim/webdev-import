@@ -21,10 +21,10 @@ class ArticleRepository extends Repository
 
     public function findAll()
     {
-        $stmt = $this->db->prepare("select * from articles");
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Article');
-        $stmt->execute();
-        return $stmt->fetchAll();
+        $this->stmt = $this->db->prepare($this->all_articles_sql);
+        $this->stmt->setFetchMode(PDO::FETCH_CLASS, 'Article');
+        $this->stmt->execute();
+        return $this->stmt->fetchAll();
     }
 
     public function findById($id)
@@ -34,14 +34,14 @@ class ArticleRepository extends Repository
 
     public function saveOne($data)
     {
-        $stmt = $this->db->prepare($this->create_article_sql);
-        return $stmt->execute($data) ?? false;
+        $this->stmt = $this->db->prepare($this->create_article_sql);
+        return $this->stmt->execute($data) ?? false;
     }
 
     public function deleteOne($id)
     {
-        $stmt = $this->db->prepare($this->delete_article_sql);
-        $stmt->bindParam(':id', $id);
-        return $stmt->execute();
+        $this->stmt = $this->db->prepare($this->delete_article_sql);
+        $this->stmt->bindParam(':id', $id);
+        return $this->stmt->execute();
     }
 }
