@@ -14,7 +14,7 @@ class articlecontroller
 
     public function index()
     {
-        $articles = $this->service->getAll();
+        $articles = $this->service->getAllArticles();
         echo json_encode($articles);
     }
 
