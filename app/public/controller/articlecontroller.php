@@ -22,6 +22,6 @@ class articlecontroller
     {
         $name = $vars["name"];
         $price = $vars["price"];
-        $this->service->createArticle($name, $price);
+        return $this->service->createArticle($name, $price);
     }
 }

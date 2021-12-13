@@ -7,23 +7,27 @@ class ArticleService
 
     private ArticleRepository $articleRepository;
 
-    public function __construct()     {
+    public function __construct()
+    {
         $this->articleRepository = new ArticleRepository();
     }
 
-    public function getAllArticles() {
+    public function getAllArticles()
+    {
         return $this->articleRepository->findAll();
     }
 
-//    public function createArticle($name, $price)
-//    {
-//        $data = [
-//            'name' => $name,
-//            'price' => $price
-//        ];
-//        $sql = "insert into articles (id, name, price) values (null, :name, :price)";
-//        $stmt = $this->db->prepare($sql);
-//        $stmt->execute($data) ?? false;
-//
-//    }
+    public function createArticle($name, $price)
+    {
+        $data = [
+            'name' => $name,
+            'price' => $price
+        ];
+        return $this->articleRepository->saveOne($data);
+    }
+
+    public function deleteArticle($id)
+    {
+        return $this->articleRepository->deleteOne($id);
+    }
 }

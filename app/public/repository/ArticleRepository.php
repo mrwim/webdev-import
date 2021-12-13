@@ -15,9 +15,12 @@ class ArticleRepository extends Repository
         $this->db = DB::getInstance();
     }
 
-    private string $all_articles = "SELECT * FROM articles";
+    private string $all_articles_sql = "SELECT * FROM articles";
+    private string $create_article_sql = "insert into articles (id, name, price) values (null, :name, :price)";
+    private string $delete_article_sql = "delete from articles where id = :id";
 
-    public function findAll() {
+    public function findAll()
+    {
         $stmt = $this->db->prepare("select * from articles");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Article');
         $stmt->execute();
@@ -29,8 +32,16 @@ class ArticleRepository extends Repository
         // TODO: Implement findById() method.
     }
 
-    public function saveOne($object)
+    public function saveOne($data)
     {
-        // TODO: Implement saveOne() method.
+        $stmt = $this->db->prepare($this->create_article_sql);
+        return $stmt->execute($data) ?? false;
+    }
+
+    public function deleteOne($id)
+    {
+        $stmt = $this->db->prepare($this->delete_article_sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
     }
 }
