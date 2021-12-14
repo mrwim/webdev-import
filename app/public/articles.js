@@ -31,7 +31,6 @@ function createArticle() {
         body: JSON.stringify(data),
     })
         .then(out => {
-            console.log(out)
             name.value = null;
             price.value = null;
             getAllArticles();
@@ -45,7 +44,6 @@ function deleteArticle(id) {
         method: 'DELETE',
     })
         .then(out => {
-            console.log(`deleted ${id}`;
             getAllArticles()
         })
         .catch(err => console.error(err))

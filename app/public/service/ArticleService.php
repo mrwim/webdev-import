@@ -30,4 +30,10 @@ class ArticleService
     {
         return $this->articleRepository->deleteOne($id);
     }
+
+    public function getOneArticle($id)
+    {
+        $article = $this->articleRepository->findById($id);
+        return $article;
+    }
 }

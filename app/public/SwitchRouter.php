@@ -28,8 +28,7 @@ class SwitchRouter
                     if ($path == null) {
                         $controller->index();
                     } else {
-                        echo "something else";
-                        exit(127);
+                       $controller->getOneArticle($path);
                     }
                 }
                 break;

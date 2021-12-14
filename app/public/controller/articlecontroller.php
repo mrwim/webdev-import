@@ -30,8 +30,10 @@ class articlecontroller
         return $this->service->deleteArticle($id);
     }
 
-    public function breakdown($path)
+    public function getOneArticle($path)
     {
-        var_dump($path);
+        $article = $this->service->getOneArticle($path);
+        echo json_encode($article);
+
     }
 }
