@@ -3,24 +3,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function getAllArticles() {
-    console.log('getting the data');
     const articlesDataElement = document.getElementById('articles-data');
     articlesDataElement.innerHTML = '';
     fetch('http://localhost/articles')
         .then(result => result.json())
         .then((out) => {
-            console.log(out);
             displayArticles(out);
         })
         .catch((err) => console.error(err))
 }
 
 function createArticle() {
-    const name = document.getElementById('form-name').value;
-    const price = document.getElementById('form-price').value;
+    const name = document.getElementById('form-name');
+    const price = document.getElementById('form-price');
     const data = {
-        'name': name,
-        'price': price
+        'name': name.value,
+        'price': price.value
     }
 
     fetch('http://localhost/articles', {

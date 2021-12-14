@@ -2,7 +2,7 @@
 
 require_once('service/ArticleService.php');
 
-class articlecontroller
+class ArticleController
 {
 
     private ArticleService $service;

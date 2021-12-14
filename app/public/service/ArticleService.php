@@ -33,7 +33,6 @@ class ArticleService
 
     public function getOneArticle($id)
     {
-        $article = $this->articleRepository->findById($id);
-        return $article;
+        return $this->articleRepository->findById($id);
     }
 }

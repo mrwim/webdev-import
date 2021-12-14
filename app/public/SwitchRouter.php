@@ -16,7 +16,7 @@ class SwitchRouter
                 $controller->about();
                 break;
             case 'articles':
-                require __DIR__ . '/controller/articlecontroller.php';
+                require __DIR__ . '/controller/ArticleController.php';
                 $controller = new ArticleController();
                 if ($method === 'POST') {
                     $controller->createArticle(json_decode($body, true));
