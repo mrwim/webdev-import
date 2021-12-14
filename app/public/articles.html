@@ -17,26 +17,15 @@ $articles = json_decode(file_get_contents('http://nginx/articles'), true);
 <h1 class="h1">Articles</h1>
 
 <table class="table table-hover">
+    <thead>
     <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">price</th>
         <th scope="col">action</th>
     </tr>
-<?php
-foreach ($articles as $article) {
-    ?>
-    <tr>
-        <td><?php echo $article['id'] ?></td>
-        <td><?php echo $article['name'] ?></td>
-        <td><?php echo $article['price'] ?></td>
-        <td>
-            <button class="btn btn-outline-danger" onclick="deleteArticle(<?php echo $article['id'] ?>)">Delete</button>
-        </td>
-    </tr>
-    <?php
-}
-?>
+    </thead>
+    <tbody id="articles-data"></tbody>
 </table>
 
 <div class="row g-3">
