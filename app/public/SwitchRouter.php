@@ -22,10 +22,15 @@ class SwitchRouter
                     $controller->createArticle(json_decode($body, true));
                 }
                 if ($method === 'DELETE') {
-                    echo 'in delete';
                     $controller->deleteArticle($path);
-                } else {
-                    $controller->index();
+                }
+                if ($method === 'GET') {
+                    if ($path == null) {
+                        $controller->index();
+                    } else {
+                        echo "something else";
+                        exit(127);
+                    }
                 }
                 break;
             default:

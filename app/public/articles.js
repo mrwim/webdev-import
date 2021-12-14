@@ -9,6 +9,7 @@ function getAllArticles() {
     fetch('http://localhost/articles')
         .then(result => result.json())
         .then((out) => {
+            console.log(out);
             displayArticles(out);
         })
         .catch((err) => console.error(err))
@@ -43,7 +44,10 @@ function deleteArticle(id) {
     fetch(url, {
         method: 'DELETE',
     })
-        .then(getAllArticles())
+        .then(out => {
+            console.log(`deleted ${id}`;
+            getAllArticles()
+        })
         .catch(err => console.error(err))
 }
 

@@ -1,9 +1,15 @@
 <?php
 require_once('./SwitchRouter.php');
+
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 $method = $_SERVER['REQUEST_METHOD'];
 $path = explode('/', $uri);
-$path = count($path) > 1 ? $path[1] : null;
+if (count($path) > 1) {
+    $uri = $path[0];
+    $path = $path[1];
+} else {
+    $path = null;
+}
 /*
  * Works well with anything, but not with e.g. about/a
  */
