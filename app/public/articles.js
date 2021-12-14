@@ -1,9 +1,17 @@
+window.addEventListener('DOMContentLoaded', (event) => {
+    getAllArticles();
+});
+
 function getAllArticles() {
+    console.log('getting the data');
+    const articlesDataElement = document.getElementById('articles-data');
+    articlesDataElement.innerHTML = '';
     fetch('http://localhost/articles')
         .then(result => result.json())
         .then((out) => {
-            console.log(out);
-        }).catch((err) => console.error(err))
+            displayArticles(out);
+        })
+        .catch((err) => console.error(err))
 }
 
 function createArticle() {
@@ -25,6 +33,7 @@ function createArticle() {
             console.log(out)
             name.value = null;
             price.value = null;
+            getAllArticles();
         })
         .catch(err => console.error(err));
 }
@@ -34,8 +43,21 @@ function deleteArticle(id) {
     fetch(url, {
         method: 'DELETE',
     })
-        .then(out => {
-            console.log(`performed delete on ${url}`);
-        })
+        .then(getAllArticles())
         .catch(err => console.error(err))
+}
+
+function displayArticles(data) {
+    const articlesDataElement = document.getElementById('articles-data');
+    data.forEach(
+        article => {
+            articlesDataElement.innerHTML +=
+                `<tr>
+                        <td class="col">${article.id}</td>
+                        <td class="col">${article.name}</td>
+                        <td class="col">${article.price}</td>
+                        <td class="col"><button class="btn btn-outline-danger" onclick="deleteArticle(${article.id})">Delete</button></td>
+                </tr>`;
+        }
+    )
 }

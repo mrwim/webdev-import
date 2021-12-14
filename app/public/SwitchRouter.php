@@ -22,7 +22,6 @@ class SwitchRouter
                     $controller->createArticle(json_decode($body, true));
                 }
                 if ($method === 'DELETE') {
-                    exit(127);
                     echo 'in delete';
                     $controller->deleteArticle($path);
                 } else {
