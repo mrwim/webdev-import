@@ -49,6 +49,9 @@ function deleteArticle(id) {
 
 function displayArticles(data) {
     const articlesDataElement = document.getElementById('articles-data');
+    /*
+    Here I'm using a quick and dirty method to display all the data. What's really needed is createElement and appending children
+     */
     data.forEach(
         article => {
             articlesDataElement.innerHTML +=
