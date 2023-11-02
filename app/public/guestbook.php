@@ -4,10 +4,10 @@ $db = DB::getInstance();
 $GET_ALL_POSTS = 'SELECT id, posted_at, name, email, message, INET_NTOA(ip_address) as ip_address FROM guestbook ORDER BY id DESC';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    $stmt = $db->prepare("INSERT INTO guestbook 
+    $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
+    $stmt = $db->prepare("INSERT INTO guestbook
         (name, email, message, posted_at, ip_address)
-        VALUES 
+        VALUES
         (:name, :email, :message, now(), :ip_address)");
     $message = nl2br($_POST['message']);
     // Only variables can be called pass by reference
