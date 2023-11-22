@@ -1,7 +1,8 @@
 <?php
 require_once '../db.php';
 $db = DB::getInstance();
-$GET_ALL_POSTS = 'SELECT id, posted_at, name, email, message, INET_NTOA(ip_address) as ip_address FROM guestbook ORDER BY id DESC';
+$GET_ALL_POSTS = 'SELECT id, posted_at, name, email, message, INET_NTOA(ip_address) ' .
+    'as ip_address FROM guestbook ORDER BY id DESC';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 }
 ?>
-
+    <!DOCTYPE html>
     <html lang="en">
     <head>
         <title>Guestbook</title>

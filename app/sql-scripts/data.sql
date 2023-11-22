@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES = @@SQL_NOTES, SQL_NOTES = 0 */;
 
 --
--- Table structure for table `guestbook`
+-- Table structure for table `posts`
 --
 
-DROP TABLE IF EXISTS `guestbook`;
+DROP TABLE IF EXISTS ` posts `;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `guestbook`
+CREATE TABLE ` posts `
 (
     `id`         int(11) unsigned NOT NULL AUTO_INCREMENT,
     `posted_at`  datetime         NOT NULL,
@@ -37,16 +37,16 @@ CREATE TABLE `guestbook`
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `guestbook`
+-- Dumping data for table `posts`
 --
 
-LOCK TABLES `guestbook` WRITE;
-/*!40000 ALTER TABLE `guestbook`
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts`
     DISABLE KEYS */;
-INSERT INTO `guestbook`
+INSERT INTO ` posts `
 VALUES (1, '2021-12-10 16:04:03', 'Wim Wiltenburg', 'info@wiltenburg.io', 'This is a test message', 2130706433),
        (2, '2021-12-10 16:04:03', 'Jack Monterey', 'jack.monterrey@gmail.com', 'Another test message', 2130706433);
-/*!40000 ALTER TABLE `guestbook`
+/*!40000 ALTER TABLE `posts`
     ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE = @OLD_TIME_ZONE */;

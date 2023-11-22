@@ -29,7 +29,7 @@ class DB extends PDO
     }
 
 
-    static function getConfig()
+    public static function getConfig(): array
     {
         return [
 
