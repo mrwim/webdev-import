@@ -2,11 +2,11 @@
 require_once '../db.php';
 $db = DB::getInstance();
 $GET_ALL_POSTS = 'SELECT id, posted_at, name, email, message, INET_NTOA(ip_address) ' .
-    'as ip_address FROM guestbook ORDER BY id DESC';
+    'as ip_address FROM posts ORDER BY id DESC';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
-    $stmt = $db->prepare("INSERT INTO guestbook
+    $stmt = $db->prepare("INSERT INTO posts
         (name, email, message, posted_at, ip_address)
         VALUES
         (:name, :email, :message, now(), :ip_address)");
