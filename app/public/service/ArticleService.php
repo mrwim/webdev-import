@@ -1,6 +1,6 @@
 <?php
-require_once('../db.php');
-require_once('model/Article.php');
+require_once '../db.php';
+require_once 'model/Article.php';
 
 class ArticleService
 {

@@ -1,6 +1,6 @@
 <?php
 
-require_once('service/ArticleService.php');
+require_once __DIR__ . '/../service/ArticleService.php';
 
 class articlecontroller
 {
