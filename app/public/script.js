@@ -22,5 +22,5 @@ function changeBackground() {
     document.getElementById('text2').innerHTML = slider2.value;
     document.getElementById('text3').innerHTML = slider3.value;
 
-    document.body.style.background = 'rgb(' + [slider1.value, slider2.value, slider3.value].join(',') + ')';
+    document.body.style.background = `rgb(${slider1.value}, ${slider2.value}, ${slider3.value})`
 }
